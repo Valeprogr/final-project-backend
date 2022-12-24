@@ -17,6 +17,22 @@ class UserServices {
         const user = await User.findById(id);
         return user
     }
+
+    async upDate(user){
+        if(!user._id){
+            throw new Error("Id missing!")
+        }
+        const updatedUser =  await User.findByIdAndUpdate(user._id , user , { new: true});
+        return updatedUser
+    }
+
+    async delete(id){
+        if(!id){
+            res.status(500).json({ message: "id Missing!"})
+        }
+        const deletedUser= await User.findByIdAndDelete(id);
+        return deletedUser
+    }
 }
 
 export default UserServices();
