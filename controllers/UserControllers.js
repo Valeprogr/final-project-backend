@@ -1,5 +1,5 @@
 import { get } from "mongoose";
-import UserServices from "../services/UserServices";
+import UserServices from "../services/UserServices.js";
 
 class UserControllers {
     async getAll(req, res) {
@@ -20,3 +20,5 @@ class UserControllers {
         }
     }
 }
+
+export default new UserControllers();
